@@ -20,7 +20,7 @@
         <developer>
             <id></id>
             <name>Walter Zorn</name>
-            <email></email>
+            <email>(deceased 2009)</email>
         </developer>
     </developers>
 
@@ -42,6 +42,44 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>com.jamesward</groupId>
+                <artifactId>unsnapshot-maven-plugin</artifactId>
+                <version>0.2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>unsnapshot</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+<!-- zip download -->
+           <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals><goal>run</goal></goals>
+                        <configuration>
+                            <target>
+                                <echo message="download archive"/>
+                                <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip"/>
+                                <echo message="unzip archive"/>
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}"/>
+                                <echo message="moving resources"/>
+                                <move todir="${destDir}">
+                                    <fileset dir="${project.build.directory}/${project.artifactId}-${version.unsnapshot}"/>
+                                </move>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+<!-- single file download
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>wagon-maven-plugin</artifactId>
                 <version>1.0-beta-4</version>
@@ -54,13 +92,13 @@
                         </goals>
                         <configuration>
                             <url>${upstream.url}</url>
-                            <fromFile>prototype.js</fromFile>
+                            <fromFile>example.js</fromFile>
                             <toDir>${destDir}</toDir>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
+-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
