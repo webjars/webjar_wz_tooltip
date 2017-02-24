@@ -1,5 +1,10 @@
 # wz_tooltip
-Initial test for wz_tooltip.js webjar
+WebJar for wz_tooltip
+
+More info: http://webjars.org
+
+Upstream: https://github.com/skotfred/wz_tooltip
+
 
 HISTORY:
 Walter Zorn contributed a great number of scripts to the open source community prior to his death in 2009. I've assembled these here so that developers can locate and reuse them a WebJARs.
