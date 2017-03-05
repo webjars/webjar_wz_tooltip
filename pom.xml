@@ -11,14 +11,14 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>wz_tooltip</artifactId>
-    <version>5.31-SNAPSHOT</version>
+    <version>5.31</version>
     <name>wz_tooltip</name>
     <description>WebJar for wz_tooltip.js</description>
     <url>http://webjars.org</url>
 
     <developers>
         <developer>
-            <id></id>
+            <id />
             <name>Walter Zorn</name>
             <email>(deceased 2009)</email>
         </developer>
@@ -44,7 +44,7 @@
         <url>http://github.com/webjars/wz_tooltip</url>
         <connection>scm:git:https://github.com/webjars/wz_tooltip.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/wz_tooltip.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>wz_tooltip-5.31</tag>
     </scm>
     
     <build>
@@ -72,13 +72,13 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="download archive"/>
-                                <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip"/>
-                                <echo message="unzip archive"/>
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/unzipped"/>
-                                <echo message="moving resources"/>
+                                <echo message="download archive" />
+                                <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip" />
+                                <echo message="unzip archive" />
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/unzipped" />
+                                <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/unzipped"/>
+                                    <fileset dir="${project.build.directory}/unzipped" />
                                 </move>
                             </target>
                         </configuration>
