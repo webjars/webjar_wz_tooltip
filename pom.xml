@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>wz_tooltip</artifactId>
-    <version>5.31</version>
+    <version>5.31-SNAPSHOT</version>
     <name>wz_tooltip</name>
     <description>WebJar for wz_tooltip.js</description>
     <url>http://webjars.org</url>
@@ -35,9 +35,17 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <upstream.version>5.31</upstream.version>
+        <!-- NOTE: This download isn't versioned -->
         <upstream.url>http://www.walterzorn.de/en/scripts/wz_tooltip.zip</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
     </properties>
+
+    <scm>
+        <url>http://github.com/webjars/wz_tooltip</url>
+        <connection>scm:git:https://github.com/webjars/wz_tooltip.git</connection>
+        <developerConnection>scm:git:https://github.com/webjars/wz_tooltip.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     
     <build>
         <plugins>
